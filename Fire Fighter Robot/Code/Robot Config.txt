@@ -1,0 +1,8 @@
+delays : 
+delay of the first check point rotation at room 1 
+
+delay of rotate from the end point to the start point to make the robot in 180 rotation degree 
+
+delay of the rotate left from room 1 to start line 
+
+delay of the secone 180 degee rotation at the start point after fire fighting 

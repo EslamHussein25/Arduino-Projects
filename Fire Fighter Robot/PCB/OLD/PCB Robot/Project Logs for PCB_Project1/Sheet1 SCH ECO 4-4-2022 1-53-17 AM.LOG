@@ -1,0 +1,29 @@
+Remove Pin=A1A-J1_15 From Net=VCC
+Remove Pin=Bluetooth-2 From Net=VCC
+Remove Pin=Bluetooth-3 From Net=GND
+Remove Pin=FlamP1-1 From Net=VCC
+Remove Pin=FlamP1-2 From Net=GND
+Remove Pin=GSM-1 From Net=VCC
+Remove Pin=GSM-2 From Net=GND
+Remove Pin=IR1P1-1 From Net=VCC
+Remove Pin=IR1P1-2 From Net=GND
+Remove Pin=IR2P1-1 From Net=VCC
+Remove Pin=IR2P1-2 From Net=GND
+Remove Pin=ServoP1-1 From Net=VCC
+Remove Pin=ServoP2-1 From Net=GND
+Remove Pin=U1-1 From Net=Reset
+Remove Pin=U1-9 From Net=Crys1
+Remove Pin=U1-10 From Net=Crys2
+Remove Pin=UltraSonicP1-1 From Net=VCC
+Remove Pin=UltraSonicP2-2 From Net=GND
+Change Component Comment: Designator=UltraSonicP2 Old Comment= New Comment=OSTTC020162
+Change Component Designator: OldDesignator=A1 NewDesignator=A?
+Change Component Designator: OldDesignator=D1 NewDesignator=D?
+Change Component Designator: OldDesignator=J1 NewDesignator=J?
+Change Component Designator: OldDesignator=Q1 NewDesignator=Q?
+Change Component Designator: OldDesignator=R1 NewDesignator=R?
+Change Component Designator: OldDesignator=R2 NewDesignator=R?
+Change Component Designator: OldDesignator=S1 NewDesignator=S?
+Change Component Designator: OldDesignator=U1 NewDesignator=U?
+Change Component Designator: OldDesignator=UltraSonicP2 NewDesignator=J?
+Change Component Designator: OldDesignator=Y1 NewDesignator=Y?

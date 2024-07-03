@@ -1,0 +1,511 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD17\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">4/5/2022</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">3:24:31 PM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc" class="file"><acronym title="D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc">D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">57</td></tr>
+</table>
+</td>
+</table><a name="IDCLQ0IGAB2LFLFNCDRNAMOULGJKVN3NRVDVXFPAIQSMSLWC04NBCG"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDEPKBLBUQQ3VANRZZI3UFC4YXFCAPIE4QFXQUCJOUIPCJOOBCANJE">Clearance Constraint (Gap=0.8mm) (All),(All)</a></td>
+<td class="column2">11</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDFCKWCOE12LBEEZQIIEQFMWJSIMFELB3F2MUJA2O1YTI2TTCHPHOI">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDCTCZLBLZUHR4DDMVBYBQORLO2EZOXSKLWVUFBCGWHF2DUN4ZGSE">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDKG5OD3EZ1E21PP50T4LL14XEIFJSB2RWM3UQXDJTA3P3JG3VCEMB">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDC5SWSEZTGMXFKB3SQHRGXDTQSJ1YO5T4RC1NOND3IIJI4OSBDE2B">Width Constraint (Min=0.8mm) (Max=0.8mm) (Preferred=0.8mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDDECA43EC3CNBHWQAJAK232DP1O0DF0R0GGLPAIM4W2ZVQY4VW2QG">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDHKYOIJHHY4QKFJAQRDOOBDULVOSJN0VV1TIGSILATQAKEXG4XBPE">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</a></td>
+<td class="column2">4</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDDDOJLCC20STEGICZVN4T5VVVPJDODBWGBUWNRLCS4J4XR5QMR2YK">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDNAQEIYMD044ELFWIPJBNR3TUYKMOGSI224RE21DLLEBOC30KCICJ">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDC3OEFHBEE15XFPTR2WQFQ1PLPLH5L0NWB4BYYWHNLVIRPIPDWCWN">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</a></td>
+<td class="column2">34</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDMY035HISP3U1PROSJ1FQ5CTWKESSNO1I3REIESH1DEHL4YZTO4ZE">Silk to Silk (Clearance=0.254mm) (All),(All)</a></td>
+<td class="column2">8</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDMAIZRM51YXVHE3HBDVIQDPNGRCYSKPJT1AXCUAP1QV0JUFVWVROF">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID5AJ3IWCFY4V5KYAC2SCD4CNIGCC5FM5TPYLHERIGOJC2UBTC5FGN">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">57</td>
+</tr>
+</table><br><a name="IDEPKBLBUQQ3VANRZZI3UFC4YXFCAPIE4QFXQUCJOUIPCJOOBCANJE"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Clearance Constraint (Gap=0.8mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4372.603mil|Location2.X=4405.349mil|Location1.Y=3998.482mil|Location2.Y=4046.885mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4372.603mil|Location2.X=4405.349mil|Location1.Y=3998.482mil|Location2.Y=4046.885mil|Absolute=True">Clearance Constraint: (0.68mm &lt; 0.8mm) Between Pad Q?-2(110.21mm,102.375mm) on Multi-Layer And Pad Q?-3(112.75mm,102.375mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4272.603mil|Location2.X=4305.349mil|Location1.Y=3998.482mil|Location2.Y=4046.885mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4272.603mil|Location2.X=4305.349mil|Location1.Y=3998.482mil|Location2.Y=4046.885mil|Absolute=True">Clearance Constraint: (0.68mm &lt; 0.8mm) Between Pad Q?-1(107.67mm,102.375mm) on Multi-Layer And Pad Q?-2(110.21mm,102.375mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4271.817mil|Location2.X=4317.345mil|Location1.Y=3441.697mil|Location2.Y=3474.443mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4271.817mil|Location2.X=4317.345mil|Location1.Y=3441.697mil|Location2.Y=3474.443mil|Absolute=True">Clearance Constraint: (0.61mm &lt; 0.8mm) Between Pad NODE-J2_14(108.92mm,86.565mm) on Multi-Layer And Pad NODE-J2_15(108.92mm,89.105mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4271.817mil|Location2.X=4317.345mil|Location1.Y=3341.697mil|Location2.Y=3374.443mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4271.817mil|Location2.X=4317.345mil|Location1.Y=3341.697mil|Location2.Y=3374.443mil|Absolute=True">Clearance Constraint: (0.61mm &lt; 0.8mm) Between Pad NODE-J2_13(108.92mm,84.025mm) on Multi-Layer And Pad NODE-J2_14(108.92mm,86.565mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4271.817mil|Location2.X=4317.345mil|Location1.Y=2741.697mil|Location2.Y=2774.443mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4271.817mil|Location2.X=4317.345mil|Location1.Y=2741.697mil|Location2.Y=2774.443mil|Absolute=True">Clearance Constraint: (0.61mm &lt; 0.8mm) Between Pad NODE-J2_7(108.92mm,68.785mm) on Multi-Layer And Pad NODE-J2_8(108.92mm,71.325mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4271.817mil|Location2.X=4317.345mil|Location1.Y=2641.697mil|Location2.Y=2674.443mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4271.817mil|Location2.X=4317.345mil|Location1.Y=2641.697mil|Location2.Y=2674.443mil|Absolute=True">Clearance Constraint: (0.61mm &lt; 0.8mm) Between Pad NODE-J2_6(108.92mm,66.245mm) on Multi-Layer And Pad NODE-J2_7(108.92mm,68.785mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4271.817mil|Location2.X=4317.345mil|Location1.Y=2541.697mil|Location2.Y=2574.443mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4271.817mil|Location2.X=4317.345mil|Location1.Y=2541.697mil|Location2.Y=2574.443mil|Absolute=True">Clearance Constraint: (0.61mm &lt; 0.8mm) Between Pad NODE-J2_5(108.92mm,63.705mm) on Multi-Layer And Pad NODE-J2_6(108.92mm,66.245mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4271.817mil|Location2.X=4317.345mil|Location1.Y=2441.697mil|Location2.Y=2474.443mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4271.817mil|Location2.X=4317.345mil|Location1.Y=2441.697mil|Location2.Y=2474.443mil|Absolute=True">Clearance Constraint: (0.61mm &lt; 0.8mm) Between Pad NODE-J2_4(108.92mm,61.165mm) on Multi-Layer And Pad NODE-J2_5(108.92mm,63.705mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4271.817mil|Location2.X=4317.345mil|Location1.Y=2341.697mil|Location2.Y=2374.443mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4271.817mil|Location2.X=4317.345mil|Location1.Y=2341.697mil|Location2.Y=2374.443mil|Absolute=True">Clearance Constraint: (0.61mm &lt; 0.8mm) Between Pad NODE-J2_3(108.92mm,58.625mm) on Multi-Layer And Pad NODE-J2_4(108.92mm,61.165mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4271.817mil|Location2.X=4317.345mil|Location1.Y=2241.697mil|Location2.Y=2274.443mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4271.817mil|Location2.X=4317.345mil|Location1.Y=2241.697mil|Location2.Y=2274.443mil|Absolute=True">Clearance Constraint: (0.61mm &lt; 0.8mm) Between Pad NODE-J2_2(108.92mm,56.085mm) on Multi-Layer And Pad NODE-J2_3(108.92mm,58.625mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4271.817mil|Location2.X=4317.345mil|Location1.Y=2141.697mil|Location2.Y=2174.443mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4271.817mil|Location2.X=4317.345mil|Location1.Y=2141.697mil|Location2.Y=2174.443mil|Absolute=True">Clearance Constraint: (0.61mm &lt; 0.8mm) Between Pad NODE-J2_1(108.92mm,53.545mm) on Multi-Layer And Pad NODE-J2_2(108.92mm,56.085mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDHKYOIJHHY4QKFJAQRDOOBDULVOSJN0VV1TIGSILATQAKEXG4XBPE"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5074.573mil|Location2.X=5201.807mil|Location1.Y=3594.453mil|Location2.Y=3721.687mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5074.573mil|Location2.X=5201.807mil|Location1.Y=3594.453mil|Location2.Y=3721.687mil|Absolute=True">Hole Size Constraint: (3.2mm &gt; 2.54mm) Pad NODE-(130.51mm,92.915mm) on Multi-Layer Actual Hole Size = 3.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4274.573mil|Location2.X=4401.807mil|Location1.Y=3594.453mil|Location2.Y=3721.687mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4274.573mil|Location2.X=4401.807mil|Location1.Y=3594.453mil|Location2.Y=3721.687mil|Absolute=True">Hole Size Constraint: (3.2mm &gt; 2.54mm) Pad NODE-(110.19mm,92.915mm) on Multi-Layer Actual Hole Size = 3.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4274.573mil|Location2.X=4401.807mil|Location1.Y=1894.453mil|Location2.Y=2021.687mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4274.573mil|Location2.X=4401.807mil|Location1.Y=1894.453mil|Location2.Y=2021.687mil|Absolute=True">Hole Size Constraint: (3.2mm &gt; 2.54mm) Pad NODE-(110.19mm,49.735mm) on Multi-Layer Actual Hole Size = 3.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5074.573mil|Location2.X=5201.807mil|Location1.Y=1894.453mil|Location2.Y=2021.687mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5074.573mil|Location2.X=5201.807mil|Location1.Y=1894.453mil|Location2.Y=2021.687mil|Absolute=True">Hole Size Constraint: (3.2mm &gt; 2.54mm) Pad NODE-(130.51mm,49.735mm) on Multi-Layer Actual Hole Size = 3.2mm</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDC3OEFHBEE15XFPTR2WQFQ1PLPLH5L0NWB4BYYWHNLVIRPIPDWCWN"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5566.665mil|Location2.X=5574.331mil|Location1.Y=2039.999mil|Location2.Y=2047.665mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5566.665mil|Location2.X=5574.331mil|Location1.Y=2039.999mil|Location2.Y=2047.665mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Text "IR4P2" (137.936mm,50.39mm) on Top Overlay And Pad IR4P1-1(142.225mm,52.85mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3829.831mil|Location2.X=3837.498mil|Location1.Y=3185.155mil|Location2.Y=3192.822mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3829.831mil|Location2.X=3837.498mil|Location1.Y=3185.155mil|Location2.Y=3192.822mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Text "IR1P2" (93.312mm,79.477mm) on Top Overlay And Pad IR1P1-1(97.6mm,81.975mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.81mil|Location2.X=4251.06mil|Location1.Y=3502.445mil|Location2.Y=3513.695mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.81mil|Location2.X=4251.06mil|Location1.Y=3502.445mil|Location2.Y=3513.695mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.241mm &lt; 0.254mm) Between Track (107.65mm,49.735mm)(107.65mm,92.915mm) on Top Overlay And Pad NODE-J2_15(108.92mm,89.105mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.241mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.81mil|Location2.X=4251.06mil|Location1.Y=3402.445mil|Location2.Y=3413.695mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.81mil|Location2.X=4251.06mil|Location1.Y=3402.445mil|Location2.Y=3413.695mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.241mm &lt; 0.254mm) Between Track (107.65mm,49.735mm)(107.65mm,92.915mm) on Top Overlay And Pad NODE-J2_14(108.92mm,86.565mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.241mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.81mil|Location2.X=4251.06mil|Location1.Y=3302.445mil|Location2.Y=3313.695mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.81mil|Location2.X=4251.06mil|Location1.Y=3302.445mil|Location2.Y=3313.695mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.241mm &lt; 0.254mm) Between Track (107.65mm,49.735mm)(107.65mm,92.915mm) on Top Overlay And Pad NODE-J2_13(108.92mm,84.025mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.241mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.81mil|Location2.X=4251.06mil|Location1.Y=3202.445mil|Location2.Y=3213.695mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.81mil|Location2.X=4251.06mil|Location1.Y=3202.445mil|Location2.Y=3213.695mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.241mm &lt; 0.254mm) Between Track (107.65mm,49.735mm)(107.65mm,92.915mm) on Top Overlay And Pad NODE-J2_12(108.92mm,81.485mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.241mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.81mil|Location2.X=4251.06mil|Location1.Y=3102.445mil|Location2.Y=3113.695mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.81mil|Location2.X=4251.06mil|Location1.Y=3102.445mil|Location2.Y=3113.695mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.241mm &lt; 0.254mm) Between Track (107.65mm,49.735mm)(107.65mm,92.915mm) on Top Overlay And Pad NODE-J2_11(108.92mm,78.945mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.241mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.81mil|Location2.X=4251.06mil|Location1.Y=3002.445mil|Location2.Y=3013.695mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.81mil|Location2.X=4251.06mil|Location1.Y=3002.445mil|Location2.Y=3013.695mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.241mm &lt; 0.254mm) Between Track (107.65mm,49.735mm)(107.65mm,92.915mm) on Top Overlay And Pad NODE-J2_10(108.92mm,76.405mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.241mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.81mil|Location2.X=4251.06mil|Location1.Y=2902.445mil|Location2.Y=2913.695mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.81mil|Location2.X=4251.06mil|Location1.Y=2902.445mil|Location2.Y=2913.695mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.241mm &lt; 0.254mm) Between Track (107.65mm,49.735mm)(107.65mm,92.915mm) on Top Overlay And Pad NODE-J2_9(108.92mm,73.865mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.241mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.81mil|Location2.X=4251.06mil|Location1.Y=2802.445mil|Location2.Y=2813.695mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.81mil|Location2.X=4251.06mil|Location1.Y=2802.445mil|Location2.Y=2813.695mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.241mm &lt; 0.254mm) Between Track (107.65mm,49.735mm)(107.65mm,92.915mm) on Top Overlay And Pad NODE-J2_8(108.92mm,71.325mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.241mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.81mil|Location2.X=4251.06mil|Location1.Y=2702.445mil|Location2.Y=2713.695mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.81mil|Location2.X=4251.06mil|Location1.Y=2702.445mil|Location2.Y=2713.695mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.241mm &lt; 0.254mm) Between Track (107.65mm,49.735mm)(107.65mm,92.915mm) on Top Overlay And Pad NODE-J2_7(108.92mm,68.785mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.241mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.81mil|Location2.X=4251.06mil|Location1.Y=2602.445mil|Location2.Y=2613.695mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.81mil|Location2.X=4251.06mil|Location1.Y=2602.445mil|Location2.Y=2613.695mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.241mm &lt; 0.254mm) Between Track (107.65mm,49.735mm)(107.65mm,92.915mm) on Top Overlay And Pad NODE-J2_6(108.92mm,66.245mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.241mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.81mil|Location2.X=4251.06mil|Location1.Y=2502.445mil|Location2.Y=2513.695mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.81mil|Location2.X=4251.06mil|Location1.Y=2502.445mil|Location2.Y=2513.695mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.241mm &lt; 0.254mm) Between Track (107.65mm,49.735mm)(107.65mm,92.915mm) on Top Overlay And Pad NODE-J2_5(108.92mm,63.705mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.241mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.81mil|Location2.X=4251.06mil|Location1.Y=2402.445mil|Location2.Y=2413.695mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.81mil|Location2.X=4251.06mil|Location1.Y=2402.445mil|Location2.Y=2413.695mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.241mm &lt; 0.254mm) Between Track (107.65mm,49.735mm)(107.65mm,92.915mm) on Top Overlay And Pad NODE-J2_4(108.92mm,61.165mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.241mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.81mil|Location2.X=4251.06mil|Location1.Y=2302.445mil|Location2.Y=2313.695mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.81mil|Location2.X=4251.06mil|Location1.Y=2302.445mil|Location2.Y=2313.695mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.241mm &lt; 0.254mm) Between Track (107.65mm,49.735mm)(107.65mm,92.915mm) on Top Overlay And Pad NODE-J2_3(108.92mm,58.625mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.241mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.81mil|Location2.X=4251.06mil|Location1.Y=2202.445mil|Location2.Y=2213.695mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.81mil|Location2.X=4251.06mil|Location1.Y=2202.445mil|Location2.Y=2213.695mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.241mm &lt; 0.254mm) Between Track (107.65mm,49.735mm)(107.65mm,92.915mm) on Top Overlay And Pad NODE-J2_2(108.92mm,56.085mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.241mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.819mil|Location2.X=4251.069mil|Location1.Y=2093.69mil|Location2.Y=2104.94mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4239.819mil|Location2.X=4251.069mil|Location1.Y=2093.69mil|Location2.Y=2104.94mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.242mm &lt; 0.254mm) Between Track (107.65mm,49.735mm)(107.65mm,92.915mm) on Top Overlay And Pad NODE-J2_1(108.92mm,53.545mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.242mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5225.32mil|Location2.X=5236.57mil|Location1.Y=3502.445mil|Location2.Y=3513.695mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5225.32mil|Location2.X=5236.57mil|Location1.Y=3502.445mil|Location2.Y=3513.695mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.241mm &lt; 0.254mm) Between Track (133.05mm,49.735mm)(133.05mm,92.915mm) on Top Overlay And Pad NODE-J1_15(131.78mm,89.105mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.241mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5225.32mil|Location2.X=5236.57mil|Location1.Y=3402.445mil|Location2.Y=3413.695mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5225.32mil|Location2.X=5236.57mil|Location1.Y=3402.445mil|Location2.Y=3413.695mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.241mm &lt; 0.254mm) Between Track (133.05mm,49.735mm)(133.05mm,92.915mm) on Top Overlay And Pad NODE-J1_14(131.78mm,86.565mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.241mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5225.32mil|Location2.X=5236.57mil|Location1.Y=3302.445mil|Location2.Y=3313.695mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5225.32mil|Location2.X=5236.57mil|Location1.Y=3302.445mil|Location2.Y=3313.695mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.241mm &lt; 0.254mm) Between Track (133.05mm,49.735mm)(133.05mm,92.915mm) on Top Overlay And Pad NODE-J1_13(131.78mm,84.025mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.241mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5225.32mil|Location2.X=5236.57mil|Location1.Y=3202.445mil|Location2.Y=3213.695mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5225.32mil|Location2.X=5236.57mil|Location1.Y=3202.445mil|Location2.Y=3213.695mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.241mm &lt; 0.254mm) Between Track (133.05mm,49.735mm)(133.05mm,92.915mm) on Top Overlay And Pad NODE-J1_12(131.78mm,81.485mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.241mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5225.32mil|Location2.X=5236.57mil|Location1.Y=3102.445mil|Location2.Y=3113.695mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5225.32mil|Location2.X=5236.57mil|Location1.Y=3102.445mil|Location2.Y=3113.695mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.241mm &lt; 0.254mm) Between Track (133.05mm,49.735mm)(133.05mm,92.915mm) on Top Overlay And Pad NODE-J1_11(131.78mm,78.945mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.241mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5225.32mil|Location2.X=5236.57mil|Location1.Y=3002.445mil|Location2.Y=3013.695mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5225.32mil|Location2.X=5236.57mil|Location1.Y=3002.445mil|Location2.Y=3013.695mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.241mm &lt; 0.254mm) Between Track (133.05mm,49.735mm)(133.05mm,92.915mm) on Top Overlay And Pad NODE-J1_10(131.78mm,76.405mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.241mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5225.32mil|Location2.X=5236.57mil|Location1.Y=2902.445mil|Location2.Y=2913.695mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5225.32mil|Location2.X=5236.57mil|Location1.Y=2902.445mil|Location2.Y=2913.695mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.241mm &lt; 0.254mm) Between Track (133.05mm,49.735mm)(133.05mm,92.915mm) on Top Overlay And Pad NODE-J1_9(131.78mm,73.865mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.241mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5225.32mil|Location2.X=5236.57mil|Location1.Y=2802.445mil|Location2.Y=2813.695mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5225.32mil|Location2.X=5236.57mil|Location1.Y=2802.445mil|Location2.Y=2813.695mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.241mm &lt; 0.254mm) Between Track (133.05mm,49.735mm)(133.05mm,92.915mm) on Top Overlay And Pad NODE-J1_8(131.78mm,71.325mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.241mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5225.32mil|Location2.X=5236.57mil|Location1.Y=2702.445mil|Location2.Y=2713.695mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5225.32mil|Location2.X=5236.57mil|Location1.Y=2702.445mil|Location2.Y=2713.695mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.241mm &lt; 0.254mm) Between Track (133.05mm,49.735mm)(133.05mm,92.915mm) on Top Overlay And Pad NODE-J1_7(131.78mm,68.785mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.241mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5225.32mil|Location2.X=5236.57mil|Location1.Y=2602.445mil|Location2.Y=2613.695mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5225.32mil|Location2.X=5236.57mil|Location1.Y=2602.445mil|Location2.Y=2613.695mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.241mm &lt; 0.254mm) Between Track (133.05mm,49.735mm)(133.05mm,92.915mm) on Top Overlay And Pad NODE-J1_6(131.78mm,66.245mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.241mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5225.32mil|Location2.X=5236.57mil|Location1.Y=2502.445mil|Location2.Y=2513.695mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5225.32mil|Location2.X=5236.57mil|Location1.Y=2502.445mil|Location2.Y=2513.695mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.241mm &lt; 0.254mm) Between Track (133.05mm,49.735mm)(133.05mm,92.915mm) on Top Overlay And Pad NODE-J1_5(131.78mm,63.705mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.241mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5225.32mil|Location2.X=5236.57mil|Location1.Y=2402.445mil|Location2.Y=2413.695mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5225.32mil|Location2.X=5236.57mil|Location1.Y=2402.445mil|Location2.Y=2413.695mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.241mm &lt; 0.254mm) Between Track (133.05mm,49.735mm)(133.05mm,92.915mm) on Top Overlay And Pad NODE-J1_4(131.78mm,61.165mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.241mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5225.32mil|Location2.X=5236.57mil|Location1.Y=2302.445mil|Location2.Y=2313.695mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5225.32mil|Location2.X=5236.57mil|Location1.Y=2302.445mil|Location2.Y=2313.695mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.241mm &lt; 0.254mm) Between Track (133.05mm,49.735mm)(133.05mm,92.915mm) on Top Overlay And Pad NODE-J1_3(131.78mm,58.625mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.241mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5225.32mil|Location2.X=5236.57mil|Location1.Y=2202.445mil|Location2.Y=2213.695mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5225.32mil|Location2.X=5236.57mil|Location1.Y=2202.445mil|Location2.Y=2213.695mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.241mm &lt; 0.254mm) Between Track (133.05mm,49.735mm)(133.05mm,92.915mm) on Top Overlay And Pad NODE-J1_2(131.78mm,56.085mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.241mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5225.311mil|Location2.X=5236.561mil|Location1.Y=2064.453mil|Location2.Y=2075.703mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5225.311mil|Location2.X=5236.561mil|Location1.Y=2064.453mil|Location2.Y=2075.703mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.242mm &lt; 0.254mm) Between Track (133.05mm,49.735mm)(133.05mm,92.915mm) on Top Overlay And Pad NODE-J1_1(131.78mm,53.545mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.242mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3840.493mil|Location2.X=3848.16mil|Location1.Y=2045.238mil|Location2.Y=2052.905mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3840.493mil|Location2.X=3848.16mil|Location1.Y=2045.238mil|Location2.Y=2052.905mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Text "IR2P2" (93.318mm,50.396mm) on Top Overlay And Pad IR2P1-2(97.75mm,52.91mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5599.691mil|Location2.X=5610.941mil|Location1.Y=3188.006mil|Location2.Y=3199.256mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5599.691mil|Location2.X=5610.941mil|Location1.Y=3188.006mil|Location2.Y=3199.256mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.013mm &lt; 0.254mm) Between Text "IR5P2" (137.935mm,79.461mm) on Top Overlay And Pad IR5P1-2(142.375mm,82.1mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0.013mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDMY035HISP3U1PROSJ1FQ5CTWKESSNO1I3REIESH1DEHL4YZTO4ZE"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk to Silk (Clearance=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5568.93mil|Location2.X=5580.18mil|Location1.Y=3642.183mil|Location2.Y=3653.433mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5568.93mil|Location2.X=5580.18mil|Location1.Y=3642.183mil|Location2.Y=3653.433mil|Absolute=True">Silk To Silk Clearance Constraint: (0.021mm &lt; 0.254mm) Between Text "IR5P1" (137.941mm,92.751mm) on Top Overlay And Arc (141.778mm,92.47mm) on Top Overlay Silk Text to Silk Clearance [0.021mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3829.033mil|Location2.X=3836.7mil|Location1.Y=3636.718mil|Location2.Y=3644.384mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3829.033mil|Location2.X=3836.7mil|Location1.Y=3636.718mil|Location2.Y=3644.384mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "IR1P1" (93.371mm,91.64mm) on Top Overlay And Arc (97.153mm,92.47mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5436.919mil|Location2.X=5444.586mil|Location1.Y=3696.955mil|Location2.Y=3704.621mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5436.919mil|Location2.X=5444.586mil|Location1.Y=3696.955mil|Location2.Y=3704.621mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "IR5P1" (137.941mm,92.751mm) on Top Overlay And Track (137.968mm,94mm)(145.468mm,94mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5427.979mil|Location2.X=5435.645mil|Location1.Y=3707.777mil|Location2.Y=3715.444mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5427.979mil|Location2.X=5435.645mil|Location1.Y=3707.777mil|Location2.Y=3715.444mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "IR5P1" (137.941mm,92.751mm) on Top Overlay And Track (137.968mm,94mm)(137.968mm,105.2mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5430.223mil|Location2.X=5437.889mil|Location1.Y=2039.999mil|Location2.Y=2047.665mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5430.223mil|Location2.X=5437.889mil|Location1.Y=2039.999mil|Location2.Y=2047.665mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "IR4P2" (137.936mm,50.39mm) on Top Overlay And Track (138.025mm,49.75mm)(138.025mm,60.95mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3673.333mil|Location2.X=3680.999mil|Location1.Y=3185.155mil|Location2.Y=3192.822mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3673.333mil|Location2.X=3680.999mil|Location1.Y=3185.155mil|Location2.Y=3192.822mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "IR1P2" (93.312mm,79.477mm) on Top Overlay And Track (93.4mm,78.875mm)(93.4mm,90.075mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3716.125mil|Location2.X=3723.792mil|Location1.Y=1980.278mil|Location2.Y=1987.945mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3716.125mil|Location2.X=3723.792mil|Location1.Y=1980.278mil|Location2.Y=1987.945mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "IR2P2" (93.318mm,50.396mm) on Top Overlay And Track (94.45mm,49.81mm)(94.45mm,61.01mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5472.854mil|Location2.X=5480.52mil|Location1.Y=3124.568mil|Location2.Y=3132.235mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Juba\MY-WORK\Arab Tech\#Graduation Projects\Fire Fighter Robot\PCB\PCB Rooms\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5472.854mil|Location2.X=5480.52mil|Location1.Y=3124.568mil|Location2.Y=3132.235mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "IR5P2" (137.935mm,79.461mm) on Top Overlay And Track (139.075mm,79mm)(139.075mm,90.2mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

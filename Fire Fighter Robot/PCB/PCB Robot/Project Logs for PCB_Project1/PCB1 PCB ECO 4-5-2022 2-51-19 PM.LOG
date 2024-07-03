@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=SendOrd1 Pin=NODE-J2_1
+Removed Pin From Net: NetName=SendOrd2 Pin=NODE-J2_3
+Added Pin To Net: NetName=SendOrd2 Pin=NODE-J2_1
+Added Pin To Net: NetName=SendOrd1 Pin=NODE-J2_3

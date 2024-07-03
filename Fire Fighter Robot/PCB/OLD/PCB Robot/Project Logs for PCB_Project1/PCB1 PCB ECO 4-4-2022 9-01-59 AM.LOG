@@ -1,0 +1,245 @@
+Removed Member From Class: ClassName=Sheet1 Member=J?
+Change Component Comment : Designator=J? Old Comment=OSTTC020162 New Comment=
+Change Component Designator: OldDesignator=A? NewDesignator=A1
+Change Component Designator: OldDesignator=D? NewDesignator=D1
+Change Component Designator: OldDesignator=J? NewDesignator=J1
+Change Component Designator: OldDesignator=J? NewDesignator=UltraSonicP2
+Change Component Designator: OldDesignator=Q? NewDesignator=Q1
+Change Component Designator: OldDesignator=R? NewDesignator=R1
+Change Component Designator: OldDesignator=R? NewDesignator=R2
+Change Component Designator: OldDesignator=S? NewDesignator=S1
+Change Component Designator: OldDesignator=U? NewDesignator=U1
+Change Component Designator: OldDesignator=Y? NewDesignator=Y1
+Added Component: Designator=Bluetooth(HDR1X6)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Component: Designator=FlamP1(OST_OSTTC020162)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "{'manufacturer': u'On Shore'}"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "OSTTC020162"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=FlamP2(OST_OSTTC020162)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "{'manufacturer': u'On Shore'}"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "OSTTC020162"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=GSM(HDR1X4)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Component: Designator=IR1P1(OST_OSTTC020162)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "{'manufacturer': u'On Shore'}"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "OSTTC020162"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=IR1P2(OST_OSTTC020162)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "{'manufacturer': u'On Shore'}"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "OSTTC020162"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=IR2P1(OST_OSTTC020162)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "{'manufacturer': u'On Shore'}"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "OSTTC020162"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=IR2P2(OST_OSTTC020162)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "{'manufacturer': u'On Shore'}"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "OSTTC020162"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=JVcc2(OST_OSTTC020162)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "{'manufacturer': u'On Shore'}"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "OSTTC020162"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=JVcc(OST_OSTTC020162)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "{'manufacturer': u'On Shore'}"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "OSTTC020162"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=Motor1(OST_OSTTC020162)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "{'manufacturer': u'On Shore'}"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "OSTTC020162"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=Motor2(OST_OSTTC020162)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "{'manufacturer': u'On Shore'}"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "OSTTC020162"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=P1(HDR1X2)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Component: Designator=Pumb(OST_OSTTC020162)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "{'manufacturer': u'On Shore'}"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "OSTTC020162"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=ServoP1(OST_OSTTC020162)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "{'manufacturer': u'On Shore'}"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "OSTTC020162"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=ServoP2(OST_OSTTC020162)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "{'manufacturer': u'On Shore'}"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "OSTTC020162"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=UltraSonicP1(OST_OSTTC020162)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "{'manufacturer': u'On Shore'}"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "OSTTC020162"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=A1-J1_10
+Added Pin To Net: NetName=GND Pin=A1-J1_14
+Added Pin To Net: NetName=VCC Pin=A1-J1_15
+Added Pin To Net: NetName=VCC Pin=Bluetooth-2
+Added Pin To Net: NetName=GND Pin=Bluetooth-3
+Added Pin To Net: NetName=VCC Pin=FlamP1-1
+Added Pin To Net: NetName=GND Pin=FlamP1-2
+Added Pin To Net: NetName=VCC Pin=GSM-1
+Added Pin To Net: NetName=GND Pin=GSM-2
+Added Pin To Net: NetName=VCC Pin=IR1P1-1
+Added Pin To Net: NetName=GND Pin=IR1P1-2
+Added Pin To Net: NetName=VCC Pin=IR2P1-1
+Added Pin To Net: NetName=GND Pin=IR2P1-2
+Added Pin To Net: NetName=VCC Pin=JVcc2-1
+Added Pin To Net: NetName=GND Pin=JVcc2-2
+Added Pin To Net: NetName=VCC Pin=JVcc-1
+Added Pin To Net: NetName=GND Pin=JVcc-2
+Added Pin To Net: NetName=VCC Pin=ServoP1-1
+Added Pin To Net: NetName=GND Pin=ServoP2-1
+Added Pin To Net: NetName=Reset Pin=U1-1
+Added Pin To Net: NetName=Crys1 Pin=U1-9
+Added Pin To Net: NetName=Crys2 Pin=U1-10
+Added Pin To Net: NetName=VCC Pin=UltraSonicP1-1
+Added Pin To Net: NetName=GND Pin=UltraSonicP2-2
+Change Net Name : Old Net Name=NetD?_A New Net Name=NetD1_A
+Added Pin To Net: NetName=ArdRx Pin=Bluetooth-4
+Added Pin To Net: NetName=ArdRx Pin=U1-15
+Added Net: Name=ArdRx
+Added Pin To Net: NetName=ArdTx Pin=Bluetooth-5
+Added Pin To Net: NetName=ArdTx Pin=U1-14
+Added Net: Name=ArdTx
+Added Pin To Net: NetName=Echo Pin=U1-13
+Added Pin To Net: NetName=Echo Pin=UltraSonicP2-1
+Added Net: Name=Echo
+Added Pin To Net: NetName=Flame Pin=FlamP2-1
+Added Pin To Net: NetName=Flame Pin=U1-23
+Added Net: Name=Flame
+Added Pin To Net: NetName=GSMRx Pin=GSM-4
+Added Pin To Net: NetName=GSMRx Pin=U1-17
+Added Net: Name=GSMRx
+Added Pin To Net: NetName=GSMTx Pin=GSM-3
+Added Pin To Net: NetName=GSMTx Pin=U1-16
+Added Net: Name=GSMTx
+Added Pin To Net: NetName=INT1 Pin=U1-4
+Added Net: Name=INT1
+Added Pin To Net: NetName=IR1 Pin=IR1P2-1
+Added Pin To Net: NetName=IR1 Pin=U1-18
+Added Net: Name=IR1
+Added Pin To Net: NetName=IR2 Pin=IR2P2-1
+Added Pin To Net: NetName=IR2 Pin=U1-19
+Added Net: Name=IR2
+Added Pin To Net: NetName=MotorA1 Pin=Motor1-1
+Added Pin To Net: NetName=MotorA1 Pin=U1-25
+Added Net: Name=MotorA1
+Added Pin To Net: NetName=MotorA2 Pin=Motor1-2
+Added Pin To Net: NetName=MotorA2 Pin=U1-26
+Added Net: Name=MotorA2
+Added Pin To Net: NetName=MotorB1 Pin=Motor2-1
+Added Pin To Net: NetName=MotorB1 Pin=U1-27
+Added Net: Name=MotorB1
+Added Pin To Net: NetName=MotorB2 Pin=Motor2-2
+Added Pin To Net: NetName=MotorB2 Pin=U1-28
+Added Net: Name=MotorB2
+Added Pin To Net: NetName=PIN0 Pin=P1-1
+Added Pin To Net: NetName=PIN0 Pin=U1-2
+Added Net: Name=PIN0
+Added Pin To Net: NetName=PumbPWM Pin=Pumb-2
+Added Pin To Net: NetName=PumbPWM Pin=U1-5
+Added Net: Name=PumbPWM
+Added Pin To Net: NetName=Pumb Pin=Pumb-1
+Added Pin To Net: NetName=Pumb Pin=U1-24
+Added Net: Name=Pumb
+Added Pin To Net: NetName=SendOrd1 Pin=A1-J1_8
+Added Pin To Net: NetName=SendOrd1 Pin=P1-2
+Added Pin To Net: NetName=SendOrd1 Pin=U1-3
+Added Net: Name=SendOrd1
+Added Pin To Net: NetName=SendOrd2 Pin=A1-J1_6
+Added Pin To Net: NetName=SendOrd2 Pin=U1-6
+Added Net: Name=SendOrd2
+Added Pin To Net: NetName=Servo Pin=ServoP1-2
+Added Pin To Net: NetName=Servo Pin=U1-11
+Added Net: Name=Servo
+Added Pin To Net: NetName=Trig Pin=U1-12
+Added Pin To Net: NetName=Trig Pin=UltraSonicP1-2
+Added Net: Name=Trig
+Added Member To Class: ClassName=Sheet1 Member=Component Bluetooth Header 6
+Added Member To Class: ClassName=Sheet1 Member=Component FlamP1 
+Added Member To Class: ClassName=Sheet1 Member=Component FlamP2 
+Added Member To Class: ClassName=Sheet1 Member=Component GSM Header 4
+Added Member To Class: ClassName=Sheet1 Member=Component IR1P1 
+Added Member To Class: ClassName=Sheet1 Member=Component IR1P2 
+Added Member To Class: ClassName=Sheet1 Member=Component IR2P1 
+Added Member To Class: ClassName=Sheet1 Member=Component IR2P2 
+Added Member To Class: ClassName=Sheet1 Member=Component J1 OSTTC020162
+Added Member To Class: ClassName=Sheet1 Member=Component JVcc2 OSTTC020162
+Added Member To Class: ClassName=Sheet1 Member=Component JVcc OSTTC020162
+Added Member To Class: ClassName=Sheet1 Member=Component Motor1 
+Added Member To Class: ClassName=Sheet1 Member=Component Motor2 
+Added Member To Class: ClassName=Sheet1 Member=Component P1 Header 2
+Added Member To Class: ClassName=Sheet1 Member=Component Pumb 
+Added Member To Class: ClassName=Sheet1 Member=Component R1 1623928-8
+Added Member To Class: ClassName=Sheet1 Member=Component ServoP1 
+Added Member To Class: ClassName=Sheet1 Member=Component ServoP2 
+Added Member To Class: ClassName=Sheet1 Member=Component UltraSonicP1 
+Added Member To Class: ClassName=Sheet1 Member=Component UltraSonicP2 
+Added Room: Name=Sheet1
